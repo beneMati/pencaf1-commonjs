@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const getAll = require('../controllers/results/getAll');
-const create = require('../controllers/results/create');
-const getById = require('../controllers/results/getById');
-const deleteById = require('../controllers/results/deleteById');
+const getAll = require('../controllers/predictions/getAll');
+const create = require('../controllers/predictions/create');
+const getById = require('../controllers/predictions/getById');
+const deleteById = require('../controllers/predictions/deleteById');
 
 router.get('/', getAll);
 
