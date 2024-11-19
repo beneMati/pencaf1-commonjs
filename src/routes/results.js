@@ -3,6 +3,9 @@ const getAll = require('../controllers/results/getAll');
 const create = require('../controllers/results/create');
 const getById = require('../controllers/results/getById');
 const deleteById = require('../controllers/results/deleteById');
+const form = require('../controllers/results/form');
+
+router.get('/new', form);
 
 router.get('/', getAll);
 

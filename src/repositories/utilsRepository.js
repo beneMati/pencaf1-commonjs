@@ -1,11 +1,11 @@
 // const models = require('../config/sequelizeDb');
 
 const utilsRepository = {
-  findAll: async(modelName) => {
-    return modelName.findAll();
+  findAll: async(modelName, options = {}) => {
+    return modelName.findAll(options);
   },
-  findById: async(modelName, id) => {
-    return modelName.findByPk(id);
+  findById: async(modelName, id, options = {}) => {
+    return modelName.findByPk(id, options);
   },
   create: async(modelName, data) => {
     return modelName.create(data);

@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+    h1.text-center Create a driver 
+    .container.d-flex.justify-content-center.align-items-center(style="height: 50vh;")
+        form(action="/drivers" method="POST" class="mt-4" style="width: 400px;") 
+            .mb-3
+                label(for="name" class="form-label") Driver Name 
+                input#name.form-control(type="text" name="name" placeholder="Enter driver's name" required) 
+            .mb-3
+                label(for="surname" class="form-label") Driver Surname 
+                input#name.form-control(type="text" name="surname" placeholder="Enter driver's surname" required) 
+            .mb-3
+                label(for="nationality" class="form-label") Driver Nationality 
+                input#name.form-control(type="text" name="nationality" placeholder="Enter driver's nationality" required) 
+            .mb-3 
+                label(for="teamId" class="form-label") Team 
+                select#teamId.form-select(name="teamId" required)
+                    option(value="" selected disabled) Select a team 
+                    each team in teams 
+                        option(value=team.id) #{team.name}
+
+            button.btn.btn-primary(type="submit") Create Driver
+            a.btn.btn-secondary.ms-2(href="/drivers") Cancel  

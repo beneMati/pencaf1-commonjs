@@ -12,7 +12,7 @@ export default [
       'no-unused-vars': 'error',
       'no-console': 'off',
       'indent': ['error', 2],
-      'max-len': ['error', { 'code': 95 }],
+      'max-len': ['error', { 'code': 100 }],
       'camelcase': 'error',
       'eqeqeq': 'error',
       'no-var': 'error',

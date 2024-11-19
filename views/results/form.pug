@@ -1,0 +1,75 @@
+extends ../layout
+
+block content
+    h1.text-center Create a result race 
+    .container(style="max-width: 600px;")
+        form(action="/results" method="POST" class="mt-4" style="width: 400px;") 
+            .mb-3.d-flex.align-items-center
+                label(for="circuitId" class="form-label me-3") Circuit 
+                select#circuitId.form-select(name="circuitId" required)
+                    option(value="" selected disabled) Select a circuit 
+                    each circuit in circuits 
+                        option(value=circuit.id) #{circuit.city}
+            .mb-3.d-flex.align-items-center
+                label(for="post1" class="form-label me-3") Post 1 
+                select#post1.form-select(name="post1" required)
+                    option(value="" selected disabled) Select a driver 1 
+                    each driver in drivers 
+                        option(value=driver.id) #{driver.name} #{driver.surname}
+            .mb-3.d-flex.align-items-center
+                label(for="post2" class="form-label me-3") Post 2 
+                select#post2.form-select(name="post2" required)
+                    option(value="" selected disabled) Select a driver 2 
+                        each driver in drivers 
+                            option(value=driver.id) #{driver.name} #{driver.surname}
+            .mb-3.d-flex.align-items-center
+                label(for="post3" class="form-label me-3") Post 3 
+                select#post3.form-select(name="post3" required)
+                    option(value="" selected disabled) Select a driver 3 
+                    each driver in drivers 
+                        option(value=driver.id) #{driver.name} #{driver.surname}
+            .mb-3.d-flex.align-items-center
+                label(for="post4" class="form-label me-3") Post 4 
+                select#post4.form-select(name="post4" required)
+                    option(value="" selected disabled) Select a driver 4 
+                    each driver in drivers 
+                        option(value=driver.id) #{driver.name} #{driver.surname}
+            .mb-3.d-flex.align-items-center 
+                label(for="post5" class="form-label me-3") Post 5 
+                select#post5.form-select(name="post5" required)
+                    option(value="" selected disabled) Select a driver 5 
+                    each driver in drivers 
+                        option(value=driver.id) #{driver.name} #{driver.surname}
+            .mb-3.d-flex.align-items-center 
+                label(for="post6" class="form-label me-3") Post 6 
+                select#post6.form-select(name="post6" required)
+                    option(value="" selected disabled) Select a driver 6 
+                    each driver in drivers 
+                        option(value=driver.id) #{driver.name} #{driver.surname}
+            .mb-3.d-flex.align-items-center 
+                label(for="post7" class="form-label me-3") Post 7 
+                select#post7.form-select(name="post7" required)
+                    option(value="" selected disabled) Select a driver 7 
+                    each driver in drivers 
+                        option(value=driver.id) #{driver.name} #{driver.surname}
+            .mb-3.d-flex.align-items-center 
+                label(for="post8" class="form-label me-3") Post 8 
+                select#post8.form-select(name="post8" required)
+                    option(value="" selected disabled) Select a driver 8 
+                    each driver in drivers 
+                        option(value=driver.id) #{driver.name} #{driver.surname}
+            .mb-3.d-flex.align-items-center 
+                label(for="post9" class="form-label me-3") Post 9 
+                select#post9.form-select(name="post9" required)
+                    option(value="" selected disabled) Select a driver 9 
+                    each driver in drivers 
+                        option(value=driver.id) #{driver.name} #{driver.surname}
+            .mb-3.d-flex.align-items-center 
+                label(for="post10" class="form-label me-3") Post 10 
+                select#post10.form-select(name="post10" required)
+                    option(value="" selected disabled) Select a driver 10 
+                    each driver in drivers 
+                        option(value=driver.id) #{driver.name} #{driver.surname}
+
+            button.btn.btn-primary(type="submit") Create Result
+            a.btn.btn-secondary.ms-2(href="/results") Cancel  

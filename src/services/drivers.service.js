@@ -1,4 +1,4 @@
-const { Drivers } = require('../models');
+const { Drivers, Teams } = require('../models');
 const baseRepository = require('../repositories/utilsRepository');
 
 const createDriver = async (data) => {
@@ -10,7 +10,18 @@ const getDriver = async (id) => {
 };
 
 const getDrivers = async () => {
-  return baseRepository.findAll(Drivers);
+  return baseRepository.findAll(Drivers, 
+    {
+      include: [
+        {
+          model: Teams,
+          as: 'team',
+          attributes: ['name'], // Solo trae la columna "name" de Table2
+        },
+      ],
+      attributes: ['id', 'name', 'surname'], // Trae columnas específicas de Table1
+    },
+  );
 };
 
 const deleteDriver = async (id) => {
