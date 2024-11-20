@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    h1.text-center Create a result race 
+    h1.text-center #{title} 
     .container(style="max-width: 600px;")
         form(action="/results" method="POST" class="mt-4" style="width: 400px;") 
             .mb-3.d-flex.align-items-center

@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-  h1.text-center Result List
+  h1.text-center #{title} 
   .container.d-flex.justify-content-center.align-items-center
     table.table.table-striped.mt-4
       thead
@@ -34,3 +34,5 @@ block content
             td= `${result.Driver9.name} ${result.Driver9.surname}`
             td= `${result.Driver10.name} ${result.Driver10.surname}`
     a.btn.btn-primary.mt-4(href="/results/new") Add New Result
+
+  a.btn.btn-outline-danger.mt-4(href="/auth/logout") Logout 

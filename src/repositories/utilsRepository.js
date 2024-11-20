@@ -7,6 +7,11 @@ const utilsRepository = {
   findById: async(modelName, id, options = {}) => {
     return modelName.findByPk(id, options);
   },
+
+  findOne: async(modelName, options = {}) => {
+    return modelName.findOne(options);
+  },
+  
   create: async(modelName, data) => {
     return modelName.create(data);
   },

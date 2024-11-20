@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    h1.text-center Create a driver 
+    h1.text-center #{title} 
     .container.d-flex.justify-content-center.align-items-center(style="height: 50vh;")
         form(action="/drivers" method="POST" class="mt-4" style="width: 400px;") 
             .mb-3

@@ -7,6 +7,7 @@ const validateRequest = (req, res, next) => {
     return handleError(res, 400, { errors: errors.array() });
   }
 
+  req.data = req.body;
   next();
 };
 
