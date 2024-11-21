@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const passport = require('./passport/index');
 const driversRouter = require('./routes/drivers');
 const circuitsRouter = require('./routes/circuits');
 const teamsRouter = require('./routes/teams');
@@ -13,6 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 app.use(cookieParser());
+app.use(passport.initialize());
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '..' ,'views'));

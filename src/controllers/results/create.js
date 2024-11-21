@@ -3,10 +3,12 @@ const resultService = require('../../services/results.service');
 const handleError = require('../../utils/handleError');
 const handleValidator = require('../../utils/handleValidator');
 const resultSchema = require('../../validators/resultSchema');
+const passport = require('../../passport/index');
 
 const createResult = [
   resultSchema,
   handleValidator,
+  passport.authenticate('cookie', { session: false, failureRedirect: '/auth/login' }),
   async (req,res) => {
     const { body } = req;
 
