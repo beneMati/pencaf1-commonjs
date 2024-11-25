@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  h1.text-center #{title} 
+  .container.d-flex.justify-content-center.align-items-center
+    table.table.table-striped.mt-4
+      thead
+        tr
+          th # 
+          th Circuit
+          th Post 1
+          th Post 2
+          th Post 3
+          th Post 4
+          th Post 5
+          th Post 6
+          th Post 7
+          th Post 8
+          th Post 9
+          th Post 10
+      tbody
+        each result, index in results
+          tr
+            td= index + 1
+            td= result.Circuit.city 
+            td= `${result.Driver1.name} ${result.Driver1.surname}`
+            td= `${result.Driver2.name} ${result.Driver2.surname}`
+            td= `${result.Driver3.name} ${result.Driver3.surname}`
+            td= `${result.Driver4.name} ${result.Driver4.surname}`
+            td= `${result.Driver5.name} ${result.Driver5.surname}`
+            td= `${result.Driver6.name} ${result.Driver6.surname}`
+            td= `${result.Driver7.name} ${result.Driver7.surname}`
+            td= `${result.Driver8.name} ${result.Driver8.surname}`
+            td= `${result.Driver9.name} ${result.Driver9.surname}`
+            td= `${result.Driver10.name} ${result.Driver10.surname}`
+    a.btn.btn-primary.mt-4(href="/results/new") Add New Result
+
+  a.btn.btn-outline-danger.mt-4(href="/auth/logout") Logout 

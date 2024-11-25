@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+    h1.text-center #{title} 
+    .container.d-flex.justify-content-center.align-items-center
+        form(action="/auth/register" method="POST" class="mt-4" style="width: 400px;") 
+            .mb-3
+                label(for="name" class="form-label") Name 
+                input#name.form-control(type="text" name="name" placeholder="Enter user's name" required) 
+            .mb-3
+                label(for="email" class="form-label") Email 
+                input#email.form-control(type="text" name="email" placeholder="Enter user's email" required) 
+            .mb-3
+                label(for="password" class="form-label") Password
+                input#password.form-control(type="text" name="password" placeholder="Enter user's password" required) 
+
+            button.btn.btn-primary(type="submit") Create User
+            a.btn.btn-secondary.ms-2(href="/auth/login") Cancel  

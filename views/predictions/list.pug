@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+  h1.text-center #{title} 
+  .container.d-flex.justify-content-center.align-items-center
+    table.table.table-striped.mt-4
+      thead
+        tr
+          th # 
+          th User
+          th Circuit
+          th Post 1
+          th Post 2
+          th Post 3
+          th Post 4
+          th Post 5
+          th Post 6
+          th Post 7
+          th Post 8
+          th Post 9
+          th Post 10
+      tbody
+        each prediction, index in predictions
+          tr
+            td= index + 1
+            td= prediction.User.name
+            td= prediction.Circuit.city 
+            td= `${prediction.Driver1.name} ${prediction.Driver1.surname}`
+            td= `${prediction.Driver2.name} ${prediction.Driver2.surname}`
+            td= `${prediction.Driver3.name} ${prediction.Driver3.surname}`
+            td= `${prediction.Driver4.name} ${prediction.Driver4.surname}`
+            td= `${prediction.Driver5.name} ${prediction.Driver5.surname}`
+            td= `${prediction.Driver6.name} ${prediction.Driver6.surname}`
+            td= `${prediction.Driver7.name} ${prediction.Driver7.surname}`
+            td= `${prediction.Driver8.name} ${prediction.Driver8.surname}`
+            td= `${prediction.Driver9.name} ${prediction.Driver9.surname}`
+            td= `${prediction.Driver10.name} ${prediction.Driver10.surname}`
+    a.btn.btn-primary.mt-4(href="/predictions/new") Add New Prediction
+
+  a.btn.btn-outline-danger.mt-4(href="/auth/logout") Logout 

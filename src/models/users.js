@@ -21,6 +21,11 @@ const Users = sequelize.define('Users', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  role: {
+    type: DataTypes.ENUM('admin', 'user'),
+    allowNull: false,
+    defaultValue: 'user', // Por defecto, todos los usuarios son "user"
+  },
 },{
   tableName: 'users',
 });

@@ -1,16 +1,24 @@
 const resultService = require('../../services/results.service');
-const handleResponse = require('../../utils/handleResponse');
+// const handleResponse = require('../../utils/handleResponse');
 const handleError = require('../../utils/handleError');
+const handleValidator = require('../../utils/handleValidator');
+const resultSchema = require('../../validators/resultSchema');
+const passport = require('../../passport/index');
 
-const createResult = async (req,res) => {
-  const { body } = req;
+const createResult = [
+  resultSchema,
+  handleValidator,
+  passport.authenticate('cookie', { session: false, failureRedirect: '/auth/login' }),
+  async (req,res) => {
+    const { body } = req;
 
-  try {
-    const result = await resultService.createResult(body); 
-    handleResponse(res, 201, 'success', result);
-  } catch (error) {
-    handleError(res, 500, error);
-  }
-};
+    try {
+      await resultService.createResult(body); 
+      // handleResponse(res, 201, 'success', result);
+      res.redirect('/results');
+    } catch (error) {
+      handleError(res, 500, error);
+    }
+  }];
 
 module.exports = createResult;

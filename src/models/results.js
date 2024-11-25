@@ -83,16 +83,16 @@ const Results = sequelize.define('Results', {
 // Foreign Keys
 Results.associate = (models) => {
   Results.belongsTo(models.Circuits, { foreignKey: 'circuitId' });
-  Results.belongsTo(models.Drivers, { foreignKey: 'post1' });
-  Results.belongsTo(models.Drivers, { foreignKey: 'post2' });
-  Results.belongsTo(models.Drivers, { foreignKey: 'post3' });
-  Results.belongsTo(models.Drivers, { foreignKey: 'post4' });
-  Results.belongsTo(models.Drivers, { foreignKey: 'post5' });
-  Results.belongsTo(models.Drivers, { foreignKey: 'post6' });
-  Results.belongsTo(models.Drivers, { foreignKey: 'post7' });
-  Results.belongsTo(models.Drivers, { foreignKey: 'post8' });
-  Results.belongsTo(models.Drivers, { foreignKey: 'post9' });
-  Results.belongsTo(models.Drivers, { foreignKey: 'post10' });
+  Results.belongsTo(models.Drivers, { foreignKey: 'post1', as: 'Driver1' });
+  Results.belongsTo(models.Drivers, { foreignKey: 'post2', as: 'Driver2' });
+  Results.belongsTo(models.Drivers, { foreignKey: 'post3', as: 'Driver3' });
+  Results.belongsTo(models.Drivers, { foreignKey: 'post4', as: 'Driver4' });
+  Results.belongsTo(models.Drivers, { foreignKey: 'post5', as: 'Driver5' });
+  Results.belongsTo(models.Drivers, { foreignKey: 'post6', as: 'Driver6' });
+  Results.belongsTo(models.Drivers, { foreignKey: 'post7', as: 'Driver7' });
+  Results.belongsTo(models.Drivers, { foreignKey: 'post8', as: 'Driver8' });
+  Results.belongsTo(models.Drivers, { foreignKey: 'post9', as: 'Driver9' });
+  Results.belongsTo(models.Drivers, { foreignKey: 'post10', as: 'Driver10' });
 };
 
 module.exports = Results;

@@ -6,11 +6,11 @@ const createTeam = async (data) => {
 };
   
 const getTeam = async (id) => {
-  return baseRepository.findById(Teams, id);
+  return baseRepository.findById(Teams, id, { attributes: ['id', 'name'] });
 };
   
 const getTeams = async () => {
-  return baseRepository.findAll(Teams);
+  return baseRepository.findAll(Teams, { attributes: ['id', 'name'] });
 };
   
 const deleteTeam = async (id) => {

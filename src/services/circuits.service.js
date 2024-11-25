@@ -10,7 +10,7 @@ const getCircuit = async (id) => {
 };
   
 const getCircuits = async () => {
-  return baseRepository.findAll(Circuits);
+  return baseRepository.findAll(Circuits, { attributes: ['id', 'name', 'city', 'country'] });
 };
   
 const deleteCircuit = async (id) => {

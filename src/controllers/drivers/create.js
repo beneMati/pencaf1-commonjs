@@ -1,16 +1,23 @@
 const driverService = require('../../services/drivers.service');
-const handleResponse = require('../../utils/handleResponse');
+// const handleResponse = require('../../utils/handleResponse');
 const handleError = require('../../utils/handleError');
+const handleValidator = require('../../utils/handleValidator');
+const driverSchema = require('../../validators/driverSchema');
 
-const createDriver = async (req,res) => {
-  const { body } = req;
+const createDriver = [
+  driverSchema,
+  handleValidator,
+  async (req,res) => {
+    const { body } = req;
 
-  try {
-    const driver = await driverService.createDriver(body); 
-    handleResponse(res, 201, 'success', driver);
-  } catch (error) {
-    handleError(res, 500, error);
-  }
-};
+    try {
+      await driverService.createDriver(body); 
+      // handleResponse(res, 201, 'success', driver);
+      res.redirect('/drivers');
+    } catch (error) {
+      handleError(res, 500, error);
+    }
+  },
+];
 
 module.exports = createDriver;
