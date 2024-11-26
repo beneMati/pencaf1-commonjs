@@ -10,14 +10,6 @@ router.get('/:id', getById);
 
 router.post('/', create);
 
-router.put('/:id', (req, res) => {
-  res.send('Hello World');
-});
-
-router.patch('/:id', (req, res) => {
-  res.send('Hello World');
-});
-
 router.delete('/:id', deleteById);
 
 module.exports = router;

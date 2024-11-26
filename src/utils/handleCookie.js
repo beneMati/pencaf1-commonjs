@@ -1,5 +1,5 @@
 const validateCookie = (req, res, next) => {
-  if(req.cookies.user) res.redirect('/results');
+  if(req.cookies.user) return res.redirect('/');
   next();
 };
 
