@@ -72,9 +72,24 @@ const getResults = async () => {
     },
   );
 };
+
+const getResultByQuery = async (query) => {
+  return baseRepository.findOne(Results, { where: query });
+};
   
 const deleteResult = async (id) => {
   return baseRepository.deleteById(Results, id);
 };
+
+const createOrUpdateResult = async (query, data) => {
+  return baseRepository.upsert(Results, query, data);
+};
   
-module.exports = { createResult, getResult, getResults, deleteResult };
+module.exports = { 
+  createResult, 
+  getResult, 
+  getResults, 
+  deleteResult, 
+  getResultByQuery, 
+  createOrUpdateResult, 
+};

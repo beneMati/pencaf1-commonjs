@@ -27,9 +27,14 @@ const Scores = sequelize.define('Scores', {
     type: DataTypes.INTEGER,
     defaultValue: 0,
   },
-  scoreCumulative: { type: DataTypes.INTEGER, defaultValue: 0 },
 },{
   tableName: 'scores',
+  indexes: [
+    {
+      unique: true,
+      fields: ['circuitId', 'userId'], // Add a unique composite index
+    },
+  ],
 });
 
 // Foreign Keys

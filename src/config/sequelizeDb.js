@@ -3,6 +3,9 @@ const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize('pencaf1', 'root', 'admin', {
   host: 'localhost',
   dialect: 'mysql',
+  dialectOptions: {
+    connectTimeout: 10000,
+  },
 });
 
 /* sequelize.sync()

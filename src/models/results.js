@@ -78,6 +78,12 @@ const Results = sequelize.define('Results', {
   },
 },{
   tableName: 'results',
+  indexes: [
+    {
+      unique: true,
+      fields: ['circuitId'], // Add a unique composite index
+    },
+  ],
 });
 
 // Foreign Keys

@@ -29,6 +29,12 @@ const utilsRepository = {
     }
     return false;
   },
+  findOrCreate: async(modelName, options = {}) => {
+    return modelName.findOrCreate(options);
+  },
+  upsert: async(modelName, condition, values) => {
+    return modelName.upsert({ ...condition, ...values });
+  },
 };
 
 module.exports = utilsRepository;

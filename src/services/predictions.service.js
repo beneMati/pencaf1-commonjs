@@ -19,7 +19,7 @@ const getPredictions = async () => {
         },
         {
           model: Circuits,
-          attributes: ['name','city'], // Solo trae la columna "name" de Table2
+          attributes: ['name','country'], // Solo trae la columna "name" de Table2
         },
         {
           model: Drivers,
@@ -76,9 +76,19 @@ const getPredictions = async () => {
     },
   );
 };
+
+const getPredictionsByQuery = async (query) => {
+  return baseRepository.findAll(Predictions, { where: query });
+};
   
 const deletePrediction = async (id) => {
   return baseRepository.deleteById(Predictions, id);
 };
   
-module.exports = { createPrediction, getPrediction, getPredictions, deletePrediction };
+module.exports = { 
+  createPrediction, 
+  getPrediction, 
+  getPredictions, 
+  deletePrediction, 
+  getPredictionsByQuery, 
+};
