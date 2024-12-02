@@ -30,7 +30,7 @@ const login = [
         maxAge: 1000 * 60 * 60,
         sameSite: 'strict', 
       });
-    res.redirect('/');
+    res.redirect('/app/scores');
   },
 ];
 

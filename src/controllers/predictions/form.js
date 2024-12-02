@@ -6,7 +6,12 @@ const formPrediction = async (req,res) => {
   try {
     const drivers = await driverService.getDrivers(); 
     const circuits = await circuitService.getCircuits();
-    res.render('predictions/form', { title: 'Create a Prediction', drivers, circuits });
+    res.render('predictions/form', { 
+      title: 'Create a Prediction', 
+      drivers, 
+      circuits, 
+      role: req.cookies.user.role, 
+    });
   } catch (error) {
     handleError(res, 500, error);
   }

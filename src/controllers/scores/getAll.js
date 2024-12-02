@@ -20,6 +20,7 @@ const getScores = async (req, res) => {
     title: 'Score List', 
     circuitScores: scores, 
     userSorted,
+    role: req.cookies.user.role,
   });
 };
   

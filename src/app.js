@@ -26,13 +26,13 @@ app.get('/', (req, res) => {
 app.use(
   '/admin', 
   passport.authenticate('cookie', { session: false, failureRedirect: '/auth/login' }) ,
-  handleRole('admin'),
+  handleRole(['admin']),
   adminRouter,
 );
 app.use(
   '/app', 
   passport.authenticate('cookie', { session: false, failureRedirect: '/auth/login' }),
-  handleRole('user'),
+  handleRole(['user','admin']),
   userRouter,
 );
 app.use('/auth', authRouter);

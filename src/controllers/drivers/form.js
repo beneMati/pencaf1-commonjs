@@ -4,7 +4,7 @@ const handleError = require('../../utils/handleError');
 const formDriver = async (req,res) => {
   try {
     const teams = await teamService.getTeams(); 
-    res.render('drivers/form', { title: 'Create a Driver', teams });
+    res.render('drivers/form', { title: 'Create a Driver', teams, role: req.cookies.user.role });
   } catch (error) {
     handleError(res, 500, error);
   }

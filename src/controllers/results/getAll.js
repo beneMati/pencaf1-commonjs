@@ -6,7 +6,7 @@ const handleError = require('../../utils/handleError');
 const getResults = async (req, res) => {
   try {
     const results = await resultService.getResults();
-    res.render('results/list', { title: 'Results List', results });
+    res.render('results/list', { title: 'Results List', results, role: req.cookies.user.role });
     // handleResponse(res, 200, 'success', results);
   } catch (error) {
     handleError(res, 500, error); 

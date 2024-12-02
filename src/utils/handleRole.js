@@ -1,8 +1,8 @@
 const handleError = require('../utils/handleError');
 
-const isAuthorized = (role) => {
+const isAuthorized = (roles) => {
   return(req, res, next) => {
-    if (!req.cookies.user || req.cookies.user.role !== role) {
+    if (!req.cookies.user || !roles.includes(req.cookies.user.role)) {
       handleError(res, 403, 'Access denied'); return;
     }
     next();
