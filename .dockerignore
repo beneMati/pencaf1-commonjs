@@ -1,0 +1,7 @@
+.github
+.vscode
+.env
+README.md
+eslint.config.mjs
+node_modules
+coverage

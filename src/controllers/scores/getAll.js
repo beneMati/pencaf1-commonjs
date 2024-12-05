@@ -16,6 +16,7 @@ const getScores = async (req, res) => {
 
   // TODO fix filter to have perfoming and also should be unique country, 
   // not one for each score that we see
+  // Should creat and enpdpoint or add call to circuit to catch country unique and return here.
   res.render('scores/list', { 
     title: 'Score List', 
     circuitScores: scores, 
