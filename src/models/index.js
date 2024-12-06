@@ -9,6 +9,8 @@ const db = {};
   dialect: 'mysql',
 }); */
 
+// FIXME Me levanta un orden no correcto pra las dependencias, 
+// drivers crea primero q teams y tieen un FK.
 fs.readdirSync(__dirname)
   .filter(file => file.endsWith('.js') && file !== 'index.js')
   .forEach(file => {
