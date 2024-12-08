@@ -23,8 +23,8 @@ const Teams = sequelize.define('Teams', {
 
 // return Drivers;
 // };
-Teams.associate = (models) => {
-  Teams.hasMany(models.Drivers, { foreignKey:'teamId', as: 'drivers' });
-};
+// Teams.associate = (models) => {
+// Teams.hasMany(Drivers, { foreignKey:'teamId', as: 'drivers' });
+// };
 
 module.exports = Teams;

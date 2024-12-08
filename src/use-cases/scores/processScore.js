@@ -6,12 +6,9 @@ const buildScorePromises = require('../scores/buildScorePromises');
 const processScores = async (circuitId) => {
   //TODO no se si esta bien return promise reject para error.
   const result = await resultService.getResultByQuery({ circuitId });
-  // No es necesario ya que si llegó hasta acá, es porque no dio error 
-  // el controllador de results creation
-  // if(!result) return Promise.reject('Result not found.');
 
   const predictions = await predictionService.getPredictionsByQuery({ circuitId });
-  if(predictions.length === 0) return Promise.reject('Predictions not found.');
+  if(predictions.length === 0) throw new Error('Predictions not found.');
 
   const userScores = calculateScores(predictions, result);
   

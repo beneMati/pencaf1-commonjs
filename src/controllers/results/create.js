@@ -1,5 +1,4 @@
 const resultService = require('../../services/results.service');
-// const handleResponse = require('../../utils/handleResponse');
 const handleError = require('../../utils/handleError');
 const handleValidator = require('../../utils/handleValidator');
 const resultSchema = require('../../validators/resultSchema');
@@ -17,16 +16,29 @@ const createResult = [
         { circuitId: body.circuitId }, 
         body,
       ); 
-      // handleResponse(res, 201, 'success', result);
-      res.redirect('/admin/results');
+      // res.redirect('/admin/results');
     } catch (error) {
       return handleError(res, 500, error);
     }
+
+    try {
+      await processScores(result[0].circuitId);
+    } catch (error) {
+      return handleError(res, 500, error);
+    }
+
+    res.redirect('/admin/results');
     
-    //TODO es correcto no usar el then o esta bien q lo coloque cuando ponga logs?
-    processScores(result[0].circuitId).catch((error) => {
-      console.error('Error processing scores:', error);
-    });
+    /*
+    // Segun la estrategia o que debo contemplar.
+    // 1- Pocos usuarios, que el administrador espere.
+    //  a- Así el usuario si va hacia la página scores, va estar la data.
+    // 2- Si voy por algo asincrono, debería agregar status de sync.
+    //  a- Así si está los scores en proceso de calculo, ver un mensaje en process.
+    // processScores(result[0].circuitId).catch((error) => {
+    //  console.error('Error processing scores:', error);
+    // });
+    */
   },
 ];
 

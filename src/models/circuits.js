@@ -28,10 +28,10 @@ const Circuits = sequelize.define('Circuits', {
 });
 
 // Relationship
-Circuits.associate = (models) => {
-  Circuits.hasMany(models.Predictions, { foreignKey: 'circuitId' });
-  Circuits.hasOne(models.Results, { foreignKey: 'circuitId' });
-  Circuits.hasMany(models.Scores, { foreignKey: 'circuitId' });
-};
+// Circuits.associate = (models) => {
+// Circuits.hasMany(Predictions, { foreignKey: 'circuitId' });
+// Circuits.hasOne(Results, { foreignKey: 'circuitId' });
+// Circuits.hasMany(Scores, { foreignKey: 'circuitId' });
+// };
 
 module.exports = Circuits;
