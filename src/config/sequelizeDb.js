@@ -9,6 +9,10 @@ const sequelize = new Sequelize(database, username, password, {
   dialect: dialect,
   dialectOptions: {
     connectTimeout: 10000,
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
   },
 });
 
