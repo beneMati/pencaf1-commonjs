@@ -31,9 +31,9 @@ const Users = sequelize.define('Users', {
 });
 
 // Relationship
-Users.associate = (models) => {
-  Users.hasMany(models.Predictions, { foreignKey: 'userId' });
-  Users.hasMany(models.Scores, { foreignKey: 'userId' });
-};
+// Users.associate = (models) => {
+// Users.hasMany(Predictions, { foreignKey: 'userId' });
+// Users.hasMany(Scores, { foreignKey: 'userId' });
+// };
 
 module.exports = Users;

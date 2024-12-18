@@ -28,7 +28,7 @@ const Drivers = sequelize.define('Drivers', {
     type: DataTypes.INTEGER,
     allowNull: true,
     references: {
-      model: 'Teams',
+      model: 'teams',
       key: 'id',
     },
     onDelete: 'SET NULL',
@@ -39,32 +39,30 @@ const Drivers = sequelize.define('Drivers', {
 
 // return Drivers;
 // };
-Drivers.associate = (models) => {
-  Drivers.belongsTo(models.Teams, { foreignKey: 'teamId', as: 'team' });
-
-  // Relationship with Predictions
-  Drivers.hasMany(models.Predictions, { foreignKey: 'prediction1' });
-  Drivers.hasMany(models.Predictions, { foreignKey: 'prediction2' });
-  Drivers.hasMany(models.Predictions, { foreignKey: 'prediction3' });
-  Drivers.hasMany(models.Predictions, { foreignKey: 'prediction4' });
-  Drivers.hasMany(models.Predictions, { foreignKey: 'prediction5' });
-  Drivers.hasMany(models.Predictions, { foreignKey: 'prediction6' });
-  Drivers.hasMany(models.Predictions, { foreignKey: 'prediction7' });
-  Drivers.hasMany(models.Predictions, { foreignKey: 'prediction8' });
-  Drivers.hasMany(models.Predictions, { foreignKey: 'prediction9' });
-  Drivers.hasMany(models.Predictions, { foreignKey: 'prediction10' });
-
-  // Relationship with Results
-  Drivers.hasMany(models.Results, { foreignKey: 'post1' });
-  Drivers.hasMany(models.Results, { foreignKey: 'post2' });
-  Drivers.hasMany(models.Results, { foreignKey: 'post3' });
-  Drivers.hasMany(models.Results, { foreignKey: 'post4' });
-  Drivers.hasMany(models.Results, { foreignKey: 'post5' });
-  Drivers.hasMany(models.Results, { foreignKey: 'post6' });
-  Drivers.hasMany(models.Results, { foreignKey: 'post7' });
-  Drivers.hasMany(models.Results, { foreignKey: 'post8' });
-  Drivers.hasMany(models.Results, { foreignKey: 'post9' });
-  Drivers.hasMany(models.Results, { foreignKey: 'post10' });
-};
+// Drivers.associate = (models) => {
+// Drivers.belongsTo(Teams, { foreignKey: 'teamId', as: 'team' });
+// // Relationship with Predictions
+// Drivers.hasMany(Predictions, { foreignKey: 'prediction1' });
+// Drivers.hasMany(Predictions, { foreignKey: 'prediction2' });
+// Drivers.hasMany(Predictions, { foreignKey: 'prediction3' });
+// Drivers.hasMany(Predictions, { foreignKey: 'prediction4' });
+// Drivers.hasMany(Predictions, { foreignKey: 'prediction5' });
+// Drivers.hasMany(Predictions, { foreignKey: 'prediction6' });
+// Drivers.hasMany(Predictions, { foreignKey: 'prediction7' });
+// Drivers.hasMany(Predictions, { foreignKey: 'prediction8' });
+// Drivers.hasMany(Predictions, { foreignKey: 'prediction9' });
+// Drivers.hasMany(Predictions, { foreignKey: 'prediction10' });
+// // Relationship with Results
+// Drivers.hasMany(Results, { foreignKey: 'post1' });
+// Drivers.hasMany(Results, { foreignKey: 'post2' });
+// Drivers.hasMany(Results, { foreignKey: 'post3' });
+// Drivers.hasMany(Results, { foreignKey: 'post4' });
+// Drivers.hasMany(Results, { foreignKey: 'post5' });
+// Drivers.hasMany(Results, { foreignKey: 'post6' });
+// Drivers.hasMany(Results, { foreignKey: 'post7' });
+// Drivers.hasMany(Results, { foreignKey: 'post8' });
+// Drivers.hasMany(Results, { foreignKey: 'post9' });
+// Drivers.hasMany(Results, { foreignKey: 'post10' });
+// };
 
 module.exports = Drivers;

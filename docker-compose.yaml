@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # Maps host port 3000 to container port 3000
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=db
+      - DB_USERNAME=root
+      - DB_PASSWORD=myrootpassword
+      - DB_NAME=pencaf1
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+      - /app/node_modules # Prevent overwriting the node_modules directory in the container
+    user: node # Run the app as the non-root 'node' user for better security
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_container
+    ports:
+      - "3306:3306" # Expose MySQL on host port 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: myrootpassword
+      MYSQL_DATABASE: pencaf1
+    volumes:
+      - db_data:/var/lib/mysql # Persist MySQL data
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "--password=myrootpassword"]
+      timeout: 20s
+      retries: 5
+
+volumes:
+  db_data:

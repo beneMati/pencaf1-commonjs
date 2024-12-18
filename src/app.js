@@ -2,13 +2,10 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const passport = require('./passport/index');
-const driversRouter = require('./routes/drivers');
-const circuitsRouter = require('./routes/circuits');
-const teamsRouter = require('./routes/teams');
-const usersRouter = require('./routes/users');
-const resultsRouter = require('./routes/results');
-const predictionsRouter = require('./routes/predictions');
+const userRouter = require('./routes/user');
 const authRouter = require('./routes/auth');
+const adminRouter = require('./routes/admin');
+const handleRole = require('./utils/handleRole');
 const app = express();
 
 app.use(express.json());
@@ -25,12 +22,19 @@ app.get('/', (req, res) => {
   res.send('Hello World app.js');
 });
 
-app.use('/drivers', driversRouter);
-app.use('/circuits', circuitsRouter);
-app.use('/teams', teamsRouter);
-app.use('/users', usersRouter);
-app.use('/results', resultsRouter);
-app.use('/predictions', predictionsRouter);
+// New Routing
+app.use(
+  '/admin', 
+  passport.authenticate('cookie', { session: false, failureRedirect: '/auth/login' }) ,
+  handleRole(['admin']),
+  adminRouter,
+);
+app.use(
+  '/app', 
+  passport.authenticate('cookie', { session: false, failureRedirect: '/auth/login' }),
+  handleRole(['user','admin']),
+  userRouter,
+);
 app.use('/auth', authRouter);
 
 module.exports = app;

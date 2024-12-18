@@ -24,9 +24,13 @@ const login = [
       return res.render('auth/formLogin', { title: 'Login User', error: 'Incorrect Password' });
     }
 
-    res.cookie('user', user.id, { httpOnly: true, secure: false, maxAge: 1000 * 60 * 60,
-      sameSite: 'strict' });
-    res.redirect('/results');
+    res.cookie('user', { id: user.id, role: user.role }, 
+      { httpOnly: true, 
+        secure: false, 
+        maxAge: 1000 * 60 * 60,
+        sameSite: 'strict', 
+      });
+    res.redirect('/app/scores');
   },
 ];
 

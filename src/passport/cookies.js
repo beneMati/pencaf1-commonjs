@@ -9,7 +9,7 @@ const cookieStrategy = (passport) => {
       let user;
 
       try {
-        user = await userService.getUser(token);
+        user = await userService.getUser(token.id);
       } catch (error) {
         return done(error);
       }

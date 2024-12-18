@@ -13,7 +13,7 @@ const createDriver = [
     try {
       await driverService.createDriver(body); 
       // handleResponse(res, 201, 'success', driver);
-      res.redirect('/drivers');
+      res.redirect('/admin/drivers');
     } catch (error) {
       handleError(res, 500, error);
     }

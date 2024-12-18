@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+    .container
+        h1.text-center #{title}
+
+        // Filter Form for Circuit Scores
+        form.mb-4(action="" method="GET")
+            .row
+                .col-md-4
+                    label(for="countryFilter") Country:
+                    select#countryFilter.form-select(name="countryFilter")
+                        option(value="") All
+                        each circuit in circuitScores
+                            if circuit.Circuit
+                                option(value=circuit.Circuit.country) #{circuit.Circuit.country}
+                .col-md-4
+                    button.btn.btn-primary.mt-4(type="submit") Filter
+
+        // Table 1: Scores by Circuit
+        h2.text-center.mt-4 Scores by Circuit
+        table.table.table-striped.table-hover
+            thead
+                tr
+                    th Circuit Name
+                    th Country
+                    th User
+                    th Score
+            tbody
+                each score in circuitScores
+                    tr
+                        td #{score.Circuit.name}
+                        td #{score.Circuit.country}
+                        td #{score.User.name}
+                        td #{score.score}
+
+        // Table 2: Total Scores by User
+        h2.text-center.mt-4 Total Scores by User
+        table.table.table-striped.table-hover
+            thead
+                tr
+                    th User
+                    th Total Score
+            tbody
+                each score in userSorted
+                    tr
+                        td #{score.name}
+                        td #{score.totalScore}
+
+    a.btn.btn-outline-danger.mt-4(href="/auth/logout") Logout 

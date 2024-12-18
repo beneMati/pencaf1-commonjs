@@ -3,7 +3,7 @@ extends ../layout
 block content
     h1.text-center #{title} 
     .container.d-flex.justify-content-center.align-items-center(style="height: 50vh;")
-        form(action="/drivers" method="POST" class="mt-4" style="width: 400px;") 
+        form(action="/admin/drivers" method="POST" class="mt-4" style="width: 400px;") 
             .mb-3
                 label(for="name" class="form-label") Driver Name 
                 input#name.form-control(type="text" name="name" placeholder="Enter driver's name" required) 
@@ -21,4 +21,4 @@ block content
                         option(value=team.id) #{team.name}
 
             button.btn.btn-primary(type="submit") Create Driver
-            a.btn.btn-secondary.ms-2(href="/drivers") Cancel  
+            a.btn.btn-secondary.ms-2(href="/admin/drivers") Cancel  

@@ -13,29 +13,34 @@ const Scores = sequelize.define('Scores', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Circuits', key: 'id',
+      model: 'circuits', key: 'id',
     },
   },
   userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Users', key: 'id',
+      model: 'users', key: 'id',
     },
   },
   score: {
     type: DataTypes.INTEGER,
     defaultValue: 0,
   },
-  scoreCumulative: { type: DataTypes.INTEGER, defaultValue: 0 },
 },{
   tableName: 'scores',
+  indexes: [
+    {
+      unique: true,
+      fields: ['circuitId', 'userId'], // Add a unique composite index
+    },
+  ],
 });
 
 // Foreign Keys
-Scores.associate = (models) => {
-  Scores.belongsTo(models.Circuits, { foreignKey: 'circuitId' });
-  Scores.belongsTo(models.Users, { foreignKey: 'userId' });
-};
+// Scores.associate = (models) => {
+// Scores.belongsTo(Circuits, { foreignKey: 'circuitId' });
+// Scores.belongsTo(Users, { foreignKey: 'userId' });
+// };
 
 module.exports = Scores;
