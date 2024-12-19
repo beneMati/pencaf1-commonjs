@@ -14,5 +14,8 @@ RUN npm install
 # Copia los archivos de la aplicación.
 COPY --chown=node:node ./src ./src
 
+# Adding this line due views folder is outside of src (take in mind in the future for another app)
+COPY --chown=node:node ./views ./views
+
 # Define el comando que ejecutará el contenedor cuando arranque
 CMD ["node", "src/server.js"]

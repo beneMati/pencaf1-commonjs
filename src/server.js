@@ -12,7 +12,7 @@ db.sequelize.sync().then(() => {
   const server = http.createServer(app);
 
   server.listen(PORT, () => {
-    console.log(`Server is running! URL: http://localhost:${PORT}`);
+    console.log(`Server is running! ${PORT}`);
   });
 }).catch((error) => {
   console.error('Unable to connect to the database:', error);
