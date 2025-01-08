@@ -3,14 +3,14 @@ module.exports = {
     username: 'root',
     password: 'admin',
     database: 'pencaf1',
-    host: '127.0.0.1',
+    host: '127.0.0.1:3306',
     dialect: 'mysql',
   },
   test: {
     username: 'root',
-    password: 'password',
-    database: 'your_test_db',
-    host: '127.0.0.1',
+    password: 'myrootpassword',
+    database: 'pencaf1',
+    host: '127.0.0.1:3306',
     dialect: 'mysql',
   },
   production: {

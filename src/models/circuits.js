@@ -1,8 +1,5 @@
 const sequelize = require('../config/sequelizeDb');
 const { DataTypes } = require('sequelize');
-// const Predictions = require('./predictions');
-// const Results = require('./results');
-// const Scores = require('./scores');
 
 const Circuits = sequelize.define('Circuits', {
   id: {
@@ -22,16 +19,9 @@ const Circuits = sequelize.define('Circuits', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  date: DataTypes.DATEONLY,
+  date: DataTypes.DATE,
 },{
   tableName: 'circuits',
 });
-
-// Relationship
-// Circuits.associate = (models) => {
-// Circuits.hasMany(Predictions, { foreignKey: 'circuitId' });
-// Circuits.hasOne(Results, { foreignKey: 'circuitId' });
-// Circuits.hasMany(Scores, { foreignKey: 'circuitId' });
-// };
 
 module.exports = Circuits;

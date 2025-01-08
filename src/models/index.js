@@ -9,8 +9,6 @@ const sequelize = require('../config/sequelizeDb');
   dialect: 'mysql',
 }); */
 
-// FIXME Me levanta un orden no correcto pra las dependencias, 
-// drivers crea primero q teams y tieen un FK.
 const Teams = require('./teams');
 const Circuits = require('./circuits');
 const Users = require('./users');
