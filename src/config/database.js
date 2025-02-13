@@ -1,3 +1,5 @@
+require('dotenv').config(); // Load environment variables
+
 module.exports = {
   development: {
     username: 'root',
@@ -7,10 +9,8 @@ module.exports = {
     dialect: 'mysql',
   },
   test: {
-    username: 'root',
-    password: 'myrootpassword',
-    database: 'pencaf1',
-    host: '127.0.0.1:3306',
+    // eslint-disable-next-line camelcase
+    use_env_variable: 'DATABASE_URL',
     dialect: 'mysql',
   },
   production: {
