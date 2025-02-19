@@ -16,7 +16,7 @@ module.exports = {
           model: 'circuits', // Nombre de la tabla referenciada
           key: 'id', // Columna de la tabla referenciada
         },
-        onDelete: 'SET NULL', // Acción al eliminar un circuito
+        // onDelete: 'SET NULL', // Acción al eliminar un circuito
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -42,6 +42,8 @@ module.exports = {
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
     });
+
+    await queryInterface.addIndex('scores', ['circuitId', 'userId'], { unique: true });
   },
 
   async down (queryInterface) {

@@ -99,6 +99,8 @@ module.exports = {
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
     });
+
+    await queryInterface.addIndex('results', ['circuitId'], { unique: true });
   },
 
   async down (queryInterface) {
