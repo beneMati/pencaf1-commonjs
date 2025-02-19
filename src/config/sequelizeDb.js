@@ -2,21 +2,17 @@ const { Sequelize } = require('sequelize');
 const config = require('./database');
 
 const env = process.env.NODE_ENV || 'test';
-const { database, username, password, host, dialect } = config[env];
+const { database, username, password, host, dialect, dialectOptions, port } = config[env];
 // const { dialect } = config[env];
 // TODO review this of use DATABASE_URL or ENV to config.
 const connectionString = process.env.DATABASE_URL || 
-  `mysql://${username}:${password}@${host}/${database}`;
+  `mysql://${username}:${password}@${host}:${port}/${database}`;
+
+console.log('Connection String:', connectionString);
 
 const sequelize = new Sequelize(connectionString, {
   dialect: dialect,
-  dialectOptions: {
-    connectTimeout: 10000,
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
+  dialectOptions: dialectOptions,
 });
 
 /* sequelize.sync()

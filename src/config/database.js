@@ -1,4 +1,6 @@
 require('dotenv').config(); // Load environment variables
+const fs = require('fs'); 
+const path = require('path');
 
 module.exports = {
   development: {
@@ -20,5 +22,12 @@ module.exports = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT || 3306,
     dialect: 'mysql',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+        ca: fs.readFileSync(path.join(__dirname, '..' , '..', 'ca-certificate.crt')),
+      },
+    }, 
   },
 };
